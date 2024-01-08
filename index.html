@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>QUORUM REGALOS</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"></script>
+</head>
+<body>
+	<div class="info">
+		<p>Avenida Te No. 950 Col. Granjas México C.P. 08400, Iztacalco, CDMX - Todos los días de 10AM - 6PM</p>
+	</div>
+
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#Inicio">Inicio</a></li>
+				<li><a href="#">Regalos</a></li>
+				<li><a href="#sobre-n">Sobre Nosotros</a></li>
+			</ul>
+		</nav>
+
+		<div class="redes">
+			<a href="https://www.facebook.com/"><img src="images/facebook.png" alt=""></a>
+			<a href="https://www.instagram.com/"><img src="images/ig.png" alt=""></a>
+			<a href="https://twitter.com/"><img src="images/x.avif" alt=""></a>
+		</div>
+	</header>
+
+	<section id="Inicio">
+		<h1>QUORUM REGALOS</h1>
+		<button onclick="toggleFormulario()" class="btn-registrar">REGISTRA TU EVENTO</button>
+		<div id="formulario" style="display: none;" class="cuadrado">
+			<form id="form-registrar" action="/api/registro" method="post">
+				<label for="dia">Día:</label>
+				<input type="date" id="dia" name="dia" required>
+	
+				<label for="nombre">Nombre del evento:</label>
+				<input type="text" id="nombre" name="nombre" required>
+	
+				<label for="tipo">Tipo de evento:</label>
+				<input type="text" id="tipo" name="tipo" required>
+	
+				<label for="correo">Correo electrónico:</label>
+				<input type="email" id="correo" name="correo" required>
+	
+				<button type="submit" class="btn-enviar">Enviar</button>
+			</form>
+		</div>
+
+	</section>
+	<section id="sobre-n">
+		<h2>Sobre Nosotros</h2>
+		<p>En QUORUM REGALOS aspiramos a transformar cada ocasión en una experiencia única y memorable y plasmarla en mesas de regalos cuidadosamente diseñadas.</p>
+		<p>Nuestro objetivo fundamental es redefinir el arte de regalar y celebrar, convirtiendo cada ocasión en una experiencia excepcional y memorables para nuestros clientes. </p>
+			<img src="images/Mesa3.jpg" alt="Descripción de la imagen">
+				<div id="map" style="height: 400px; width: 100%;"></div>
+			
+			<script>
+				function initMap() {
+					var cdmx = { lat: 19.432608, lng: -99.133209 };
+					var map = new google.maps.Map(document.getElementById('map'), {
+						zoom: 4,
+						center: uluru
+					});
+				}
+				
+				// Llamar a la función initMap()
+				initMap();
+			</script>
+	</section>
+	<script src="logica.js"></script>
+</body>
+</html>
